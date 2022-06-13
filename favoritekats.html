@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        header {
+            background: linear-gradient(to left, brown, yellow);
+            padding: 20px;
+            font-size: 30px;
+        }
+        header a {
+            display: inline-block;
+            margin-right: 30px;
+            text-decoration: none;
+            transition: all 1s;
+        }
+        header span {
+            transition: all 1s;
+        }
+        header a:first-child:hover span {
+            transform: scale(1.5);
+        }
+        header a:last-child:hover span {
+            transform: scale(1.5);
+        }
+        img {
+            width: 15%;
+        }
+        main {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+    </style>
+
+</head>
+<body>
+    <header>
+        <a href="indexcats.html">Котики <span style="display: inline-block;">😸</span></a>
+        <a href="favoritekats.html">Любимые котики <span style="color: red; display: inline-block;">❤</span></a>
+    </header>
+    <main>
+
+    </main>
+    <script>
+        var returnObj = JSON.parse(localStorage.getItem("myKats"))
+        // for(let o in returnOb)
+        var arimg = Object.values(returnObj)
+        var main = document.querySelector("main")
+        for(let i = 0; i < arimg.length; i++) {
+            img = document.createElement("img")
+            main.appendChild(img)
+            img.src = arimg[i]
+        }
+
+    </script>
+</body>
+</html>
